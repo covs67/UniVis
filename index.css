@@ -1,0 +1,32 @@
+html, body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%:
+}
+
+.camera-container{
+  position: relative;
+}
+
+.startPage {
+  width: 300px
+  text-align: center;
+  height: 100vh;
+}
+
+.scanPage {
+  width: 300px
+  text-align: center;
+  height: 100vh;
+}
+
+header {
+  background: url('/images/Main-Screen-Header.png');
+  background-position: center center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    height: 200px;
+  font-family: "Mukta Mahee", sans-serif;
+  text-align: center;
+}
