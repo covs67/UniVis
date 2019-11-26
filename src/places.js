@@ -34,7 +34,7 @@ function loadPlaceFromAPIs(position) {
 
     // Foursquare API
     const endpoint = `${corsProxy}https://api.foursquare.com/v2/venues/search?intent=checkin
-        &ll=${-4.13918},${50.37434}
+        &ll=${50.37434},${-4.13918}
         &radius=${params.radius}
         &client_id=${params.clientId}
         &client_secret=${params.clientSecret}
@@ -63,12 +63,12 @@ window.onload = () => {
         loadPlaces(position.coords)
             .then((places) => {
                 places.forEach((place) => {
-                    const latitude = -4.13918;
-                    const longitude = 50.37434;
+                    const latitude =  50.37434;
+                    const longitude = -4.13918;
 
                     // add place name
                     const text = document.createElement('a-link');
-                    text.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
+                    text.setAttribute('gps-entity-place', `latitude: ${50.37434}; longitude: ${-4.13918};`);
                     text.setAttribute('title', 'Roland Levinsky Building');
                     text.setAttribute('href', 'http://www.example.com/');
                     text.setAttribute('scale', '13 13 13');
