@@ -1,3 +1,4 @@
+
 const loadPlaces = function (coords) {
     // COMMENT FOLLOWING LINE IF YOU WANT TO USE STATIC DATA AND ADD COORDINATES IN THE FOLLOWING 'PLACES' ARRAY
     const method = 'api';
@@ -33,7 +34,7 @@ function loadPlaceFromAPIs(position) {
 
     // Foursquare API
     const endpoint = `${corsProxy}https://api.foursquare.com/v2/venues/search?intent=checkin
-        &ll=${position.latitude},${position.longitude}
+        &ll=${-4.13918},${50.37434}
         &radius=${params.radius}
         &client_id=${params.clientId}
         &client_secret=${params.clientSecret}
@@ -62,13 +63,13 @@ window.onload = () => {
         loadPlaces(position.coords)
             .then((places) => {
                 places.forEach((place) => {
-                    const latitude = place.location.lat;
-                    const longitude = place.location.lng;
+                    const latitude = -4.13918;
+                    const longitude = 50.37434;
 
                     // add place name
                     const text = document.createElement('a-link');
                     text.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
-                    text.setAttribute('title', place.name);
+                    text.setAttribute('title', 'Roland Levinsky Building');
                     text.setAttribute('href', 'http://www.example.com/');
                     text.setAttribute('scale', '13 13 13');
 
