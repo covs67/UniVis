@@ -1,13 +1,14 @@
+
 const loadPlaces = function (coords) {
-    // COMMENT FOLLOWING LINE IF YOU WANT TO USE STATIC DATA AND ADD COORDINATES IN THE FOLLOWING 'PLACES' ARRAY
-    const method = 'api';
+    
+    //const method = 'api';
 
     const PLACES = [
         {
-            name: "Your place name",
+            name: "RLB201",
             location: {
-                lat: 0, // add here latitude if using static data
-                lng: 0, // add here longitude if using static data
+                lat: 50.37433, // add here latitude if using static data
+                lng: -4.13906, // add here longitude if using static data
             }
         },
     ];
@@ -33,7 +34,7 @@ function loadPlaceFromAPIs(position) {
 
     // Foursquare API
     const endpoint = `${corsProxy}https://api.foursquare.com/v2/venues/search?intent=checkin
-        &ll=${position.latitude},${position.longitude}
+        &ll=${50.37433},${-4.13906}
         &radius=${params.radius}
         &client_id=${params.clientId}
         &client_secret=${params.clientSecret}
@@ -62,13 +63,13 @@ window.onload = () => {
         loadPlaces(position.coords)
             .then((places) => {
                 places.forEach((place) => {
-                    const latitude = place.location.lat;
-                    const longitude = place.location.lng;
+                    const latitude =  50.37433;
+                    const longitude = -4.13906;
 
                     // add place name
                     const text = document.createElement('a-link');
-                    text.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
-                    text.setAttribute('title', place.name);
+                    text.setAttribute('gps-entity-place', `latitude: ${50.37433}; longitude: ${-4.13906};`);
+                    text.setAttribute('title', 'RLB 201');
                     text.setAttribute('href', 'http://www.example.com/');
                     text.setAttribute('scale', '13 13 13');
 
