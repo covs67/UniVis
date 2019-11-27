@@ -27,6 +27,16 @@ header {
     background-size: 100%;
     background-repeat: no-repeat;
     height: 200px;
+}
+
+h2 {
   font-family: "Mukta Mahee", sans-serif;
   text-align: center;
+  position: relative;
+  top: 10px;
+}
+
+.scanBox {
+  position: relative;
+  top: -150px;
 }

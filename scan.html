@@ -39,12 +39,12 @@
 
   <header class="">
     <!-- <img src="images/Main-Screen-Header.png" alt="Header" class="img-fluid w-100"> -->
-    <h2>Latitude: 0.00  Longitude: 0.00  Altitude: 0.00</h2>
+    <h2>Latitude: <span id="latVal"></span>  Longitude: <span id="longVal"></span>  Altitude: <span id="altVal"></span></h2>
   </header>
 
   <div class="scanPage d-flex align-items-center justify-content-center">
     <div class="row">
-      <div class="col-4 mx-auto">
+      <div class="scanBox col-4 mx-auto">
         <!-- <img id="header" src="images/Main-Screen-Header.png" alt="Header" class="img-fluid w-100 mb-3"> -->
         <img src="images/QRCentralAreaScreen.png" alt="QRScan" class="img-fluid w-100 mb-3">
       </div>
@@ -52,5 +52,17 @@
   </div>
 
 </div>
+
+<script>
+
+  var latVal = document.getElementById('latVal');
+  var longVal = document.getElementById('longVal');
+  var altVal = document.getElementById('altVal');
+
+  latVal.innerHTML = '1.00';
+  longVal.innerHTML = '1.00';
+  altVal.innerHTML = '1.00';
+
+</script>
 </body>
 </html>
