@@ -1,14 +1,14 @@
 
 const loadPlaces = function (coords) {
     
-    //const method = 'api';
+    const method = 'api';
 
     const PLACES = [
         {
             name: "RLB201",
             location: {
-                lat: 50.37433, // add here latitude if using static data
-                lng: -4.13906, // add here longitude if using static data
+                lat: 0, // add here latitude if using static data
+                lng: 0, // add here longitude if using static data
             }
         },
     ];
