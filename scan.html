@@ -25,6 +25,7 @@
 <script src="./src/places.js"></script>
 
 <body style='margin: 0; overflow: hidden;'>
+
   <div class="camera-container">
     <a-scene
         cursor='rayOrigin: mouse; fuse: true; fuseTimeout: 0;'
@@ -36,19 +37,22 @@
         <a-camera gps-camera="minDistance: 40;" rotation-reader>
 		</a-camera>
 	</a-scene>
-  <div class="startPage d-flex align-items-center justify-content-center">
+
+  <header class="">
+    <!-- <img src="images/Main-Screen-Header.png" alt="Header" class="img-fluid w-100"> -->
+    <h2>Latitude: <span id="latVal"></span>  Longitude: <span id="longVal"></span>  Altitude: <span id="altVal"></span></h2>
+  </header>
+
+  <div class="scanPage d-flex align-items-center justify-content-center">
     <div class="row">
-      <div class="col-4 mx-auto">
-        <h1 class="text-center">UniVis</h1>
-        <img src="images/logoTransp.png" alt="logo" class="img-fluid w-100 mb-3">
-        <a href="scan.html">
-        <img id="theButton" src="images/Continue-Button2.png" alt="continue-button" class="img-fluid w-100 mb-3">
-      </a>
+      <div class="scanBox col-4 mx-auto">
+        <!-- <img id="header" src="images/Main-Screen-Header.png" alt="Header" class="img-fluid w-100 mb-3"> -->
+        <img src="images/QRCentralAreaScreen.png" alt="QRScan" class="img-fluid w-100 mb-3">
       </div>
     </div>
-
-
   </div>
+
 </div>
+<script src="sketch.js"></script>
 </body>
 </html>
