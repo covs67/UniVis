@@ -45,7 +45,7 @@ var initializeApp = firebase.initializeApp({
              name: 'test name',
             lat: randomlat,
             lng: randomlng, 
-            type: 'building'   
+              
           }).then(
               window.alert('lat:'+randomlat+', long:'+randomlng)
           ).then(
