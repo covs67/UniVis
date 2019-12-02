@@ -28,7 +28,7 @@ var initializeApp = firebase.initializeApp({
                })
            });
         response.json(result);
-            // Handle error
+            
         
       } catch (error) {
           

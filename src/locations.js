@@ -1,3 +1,4 @@
+var currentLocation;
 
 const loadPlaces = function (coords) {
     
@@ -5,7 +6,7 @@ const loadPlaces = function (coords) {
 
     const PLACES = [
         {
-            name: "RLB201",
+            name: "Your place name",
             location: {
                 lat: 0, // add here latitude if using static data
                 lng: 0, // add here longitude if using static data
