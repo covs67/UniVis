@@ -1,0 +1,26 @@
+{
+  "name": "arjs",
+  "version": "0.0.0",
+  "description": "ARJS",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "Val",
+  "entry point": "app.js",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.10.8",
+    "firebase": "^7.5.0",
+    "firebase-admin": "^5.12.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git" 
+  },
+  "keywords": [
+    "arjs"
+  ],
+
+}

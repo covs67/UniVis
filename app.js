@@ -1,68 +1,98 @@
-var express = require('express');
-var app = express();
-
-var firebase = require('firebase-admin')
-var serviceAccount = require('./serviceAccountKey.json')
-var initializeApp = firebase.initializeApp({
-    databaseURL: "https://univiz.firebaseio.com",
-    credential: firebase.credential.cert(serviceAccount)
-  } );
- 
+// var express = require('express');
+// var app = express();
+// app = express(); 
+// app.use('/', express.static(__dirname + '/'));
+// app.listen(3000, function () {
+//   console.log('Example app listening on port 3000!');
+// });
 
 
-  app.get('/locations', async(response)=>{
-      try {
-          var result = []
-          var database = firebase.database();
-          var locationsRef = database.ref('locations');
-          const locations = await locationsRef.once('value');
-            // Do something with the result
-           locations.foreach(function(snapshot){
-               result.push({
-                   name:snapshot.val().name,
-                   description: snapshot.val().description?snapshot.val().description: 'default description',
-                   location:{
-                       lat:snapshot.val().lat,
-                       lng:snapshot.val().lng
-                   }
-               })
-           });
-        response.json(result);
-            
-        
-      } catch (error) {
-          
-      }
-  })
+const express = require('express');
+const app = express();
+const path = require('path');
+const firebaseConfig = {
+  apiKey: "AIzaSyCmydi-tlkZnFyT-BVF8QwNMhW8HkEWAE0",
+  authDomain: "univiz.firebaseapp.com",
+  databaseURL: "https://univiz.firebaseio.com",
+  projectId: "univiz",
+  storageBucket: "univiz.appspot.com",
+  messagingSenderId: "982900907406",
+  appId: "1:982900907406:web:a7cc382058d0b831da98df"
+};
 
-  app.post('/location', async(request,response)=>{
-      try {
-          var result = []
-          var locationsRef = database.ref('locations');
-          var randomlat = request.latitude+getRandomLocationNumber()
-          var randomlng = request.longitude+getRandomLocationNumber()
-          locationsRef.push({
-             name: 'test name',
-            lat: randomlat,
-            lng: randomlng, 
-              
-          }).then(
-              window.alert('lat:'+randomlat+', long:'+randomlng)
-          ).then(
-              window.location.reload()
-          )
+var firebase = require("firebase-admin");
+var serviceAccount = require("./serviceAccountKey.json");
+firebase.initializeApp({
+    credential: firebase.credential.cert(serviceAccount),
+   databaseURL: "https://univiz.firebaseio.com"
+  });
 
-        } catch (error) {
-          console.log(error)
-      }
-  })
-app.get('/', function(request, response){
-    response.sendfile(path.join(__dirname, 'index.html'));
+var database = firebase.database();
+
+//get all locations
+app.get('/locations', async (request, response) => {
+    try {
+        let result = []
+        const locationsRef = database.ref('locations');
+        const locations = await locationsRef.once('value');
+        locations.forEach(function(snapshot) {
+            result.push({
+                name:snapshot.val().name,
+                desciption:snapshot.val().description?snapshot.val().description:'Empty Description',
+                location: {
+                    lat:snapshot.val().lat,
+                    lng:snapshot.val().lng,
+                }
+            });
+        })
+      response.json(result);
+  
+    } catch(error){
+  
+      response.status(500).send(error);
+  
+    }
+  
 });
-  app.use("/static", express.static('./static/'));
-  app.listen(process.env.PORT||4000,function(){
-      console.log('Server Running at Port 4000')
-  })
-  var getRandomLocationNumber = function(){
-      return Math.floor(Math.random()*(0.009-0.001))+0.001
-  }
+
+app.post('/location', async(request, response) => {
+  try {
+    let result = []
+    const locationsRef = database.ref('locations');
+    
+    let randomLat = request.latitude + getRandomLocationNumber()
+    let randomLng = request.longitude + getRandomLocationNumber()
+
+    locationsRef.push({
+      name: 'Random Test Name',
+      lat:  randomLat,
+      lng:  randomLng
+    }).then(
+        window.alert('Lat:'+ randomLat + ', Long:' + randomLng)
+        ).then(
+            window.location.reload()
+    )
+
+} catch(error){
+
+  response.status(500).send(error);
+
+}
+})
+
+//set index.html as our first page 
+app.get('/', function(req, res) {
+    res.sendFile(path.join(__dirname, 'index.html'));
+});
+
+app.use("/static", express.static('./static/'));
+
+app.listen(process.env.PORT || 4000, function(){
+    console.log('Your node js server is running');
+});
+
+
+
+const getRandomLocationNumber = function(){
+  return Math.floor(Math.random() * (0.009 - 0.001)) + 0.001
+}
