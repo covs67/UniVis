@@ -7,10 +7,10 @@ var currentLocation;
     const PLACES = [
         {
             name: "",
-            location: {
+            description: "",
                 lat: 0, 
                 lng: 0, 
-            }
+        
         },
     ];
 
