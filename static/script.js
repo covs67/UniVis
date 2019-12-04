@@ -6,7 +6,7 @@ var currentLocation;
 
     const PLACES = [
         {
-            name: "Your place name",
+            name: "",
             location: {
                 lat: 0, // add here latitude if using static data
                 lng: 0, // add here longitude if using static data
@@ -67,7 +67,7 @@ window.onload = () => {
                     // add place name
                     const text = document.createElement('a-link');
                     text.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
-                    text.setAttribute('title', place.type+':'+ place.name+': '+place.desciption);
+                    text.setAttribute('title', place.type+':'+ place.name+': '+place.description);
                     text.setAttribute('scale', '13 13 13');
 
                     text.addEventListener('loaded', () => {

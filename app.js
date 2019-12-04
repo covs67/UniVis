@@ -88,7 +88,7 @@ app.get('/', function(req, res) {
 app.use("/static", express.static('./static/'));
 
 app.listen(process.env.PORT || 4000, function(){
-    console.log('Your node js server is running');
+    console.log('Server is running at Port 4000');
 });
 
 
