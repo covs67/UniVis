@@ -33,7 +33,7 @@ async function loadPlaceFromAPIs(position) {
         locations.forEach(function(snapshot) {
             result.push({
                 name:snapshot.val().name,
-                desciption:snapshot.val().description?snapshot.val().description:'Empty Description',
+                description:snapshot.val().description?snapshot.val().description:'Empty Description',
                 location: {
                     lat:snapshot.val().lat,
                     lng:snapshot.val().lng,
