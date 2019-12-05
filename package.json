@@ -17,10 +17,14 @@
   },
   "devDependencies": {},
   "repository": {
-    "type": "git" 
+    "type": "git",
+    "url": "git+https://github.com/"
   },
   "keywords": [
     "arjs"
-  ]
-
+  ],
+  "bugs": {
+    "url": "https://github.com/"
+  },
+  "homepage": "https://github.com/"
 }

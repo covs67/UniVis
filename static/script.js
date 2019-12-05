@@ -6,11 +6,11 @@ var currentLocation;
 
     const PLACES = [
         {
-            name: "",
-            description: "",
+            name: "Your place name",
+            location: {
                 lat: 0, 
                 lng: 0, 
-        
+            }
         },
     ];
 
@@ -33,7 +33,7 @@ async function loadPlaceFromAPIs(position) {
         locations.forEach(function(snapshot) {
             result.push({
                 name:snapshot.val().name,
-                description:snapshot.val().description?snapshot.val().description:'Empty Description',
+                desciption:snapshot.val().description?snapshot.val().description:'Empty Description',
                 location: {
                     lat:snapshot.val().lat,
                     lng:snapshot.val().lng,
@@ -67,7 +67,7 @@ window.onload = () => {
                     // add place name
                     const text = document.createElement('a-link');
                     text.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
-                    text.setAttribute('title', +place.name+': '+place.description);
+                    text.setAttribute('title', place.name+': '+place.desciption);
                     text.setAttribute('scale', '13 13 13');
 
                     text.addEventListener('loaded', () => {

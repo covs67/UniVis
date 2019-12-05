@@ -10,21 +10,13 @@
 const express = require('express');
 const app = express();
 const path = require('path');
-const firebaseConfig = {
-  apiKey: "AIzaSyCmydi-tlkZnFyT-BVF8QwNMhW8HkEWAE0",
-  authDomain: "univiz.firebaseapp.com",
-  databaseURL: "https://univiz.firebaseio.com",
-  projectId: "univiz",
-  storageBucket: "univiz.appspot.com",
-  messagingSenderId: "982900907406",
-  appId: "1:982900907406:web:a7cc382058d0b831da98df"
-};
+
 
 var firebase = require("firebase-admin");
 var serviceAccount = require("./serviceAccountKey.json");
 firebase.initializeApp({
     credential: firebase.credential.cert(serviceAccount),
-   databaseURL: "https://univiz.firebaseio.com"
+    databaseURL: "https://univiz.firebaseio.com"
   });
 
 var database = firebase.database();
@@ -38,7 +30,7 @@ app.get('/locations', async (request, response) => {
         locations.forEach(function(snapshot) {
             result.push({
                 name:snapshot.val().name,
-                description:snapshot.val().description?snapshot.val().description:'Empty Description',
+                desciption:snapshot.val().description?snapshot.val().description:'Empty Description',
                 location: {
                     lat:snapshot.val().lat,
                     lng:snapshot.val().lng,
@@ -88,7 +80,7 @@ app.get('/', function(req, res) {
 app.use("/static", express.static('./static/'));
 
 app.listen(process.env.PORT || 4000, function(){
-    console.log('Server is running at Port 4000');
+    console.log('Your node js server is running');
 });
 
 
