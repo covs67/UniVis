@@ -8,8 +8,8 @@ var currentLocation;
         {
             name: "Your place name",
             location: {
-                lat: 0, 
-                lng: 0, 
+                lat: 0, // add here latitude if using static data
+                lng: 0, // add here longitude if using static data
             }
         },
     ];
